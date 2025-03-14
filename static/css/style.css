@@ -1,0 +1,48 @@
+body{
+    background-color: orangered;
+}
+
+h2{
+    margin-left: 40%;
+}
+h4 {
+    color: white;
+    background: mediumblue;
+}
+/*.container {*/
+/*  max-width: 600px;*/
+/*  margin: 0 auto;*/
+/*  padding: 20px;*/
+/*  background-color: #f9f9f9;*/
+/*  border-radius: 10px;*/
+/*  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);*/
+/*}*/
+/*.dex{*/
+/*  max-width: 600px;*/
+/*  margin: 0 auto;*/
+/*  padding: 20px;*/
+/*  background-color: white;*/
+/*  border-radius: 10px;*/
+/*  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);*/
+/*}*/
+
+.dev input{
+    align-items: center;
+    justify-content: center;
+    list-style: block;
+}
+h3{
+    color: black;
+    background: green;
+}
+button{
+    align-items: center;
+    justify-content: center;
+}
+#forma{
+    background: red;
+}
+.btn1{
+    border: 2px transparent;
+    outline: red;
+}
