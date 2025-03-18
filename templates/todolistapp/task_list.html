@@ -39,21 +39,21 @@
 <ul>
     {% for task in tasks  %}
             <li>
-                {{ task.title }} - completed {{ task.completed }}
+                {{ task.title }} - completed {{ task.completed }} <br>
             <span>- assigned to -{{ task.taskers.username }}
-            </span>
+            </span> <br>
             <span>
                 {{ task.taskers.email }}
             </span>
-            {% if task.completed %}
+                <br> <br> {% if task.completed %}
                 completed
             {% else %}
                 <button style="border: 2px transparent; outline: red; ">
                 <a href="{% url 'mark_complete' task.id %}">Mark as Done</a>
-                </button>
+                </button> <br> <br>
 
             {% endif %}
-            <button style="border: 2px transparent" class="btn1">
+                <button style="border: 2px transparent" class="btn1">
                 <a href="{% url 'delete_task' task.id %}">Delete This Task</a>
             </button>
             </li>

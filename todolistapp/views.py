@@ -3,8 +3,43 @@ from asyncio import tasks
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from .models import Task, Taskers
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
+
 
 # Create your views here.
+"""authentication view functions"""
+# User registration (sign up)
+def register(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        # check if the form entries are valid
+        if form.is_valid():
+            # capturing the details for the registration and saving them to db
+            form.save()
+            return redirect('login')
+    else:
+        form = UserCreationForm()
+    return render(request, 'todolistapp/register.html', {'form' : form})
+
+def user_login(request):
+    if request.method == 'POST':
+        form = AuthenticationForm(data=request.POST)
+        if form.is_valid():
+            user = form.get_user() # user exists in db we get the record object
+            login(request, user)
+            return redirect('task_list')
+    else:
+        form = AuthenticationForm()
+    return render(request, 'todolistapp/login.html', {'form' : form})
+
+def logout(request):
+    logout(request)
+    return redirect('login')
+
+
+
 """these functionalities take care of CRUD :-)"""
 def task_list(request):
 
@@ -21,6 +56,7 @@ def add_tasker(request):
     if request.method == "POST":
         username = request.POST.get('user_tasker')
         email =request.POST.get('user_email')
+
         #save to db table
         if username:
             Taskers.objects.create(username=username, email=email)

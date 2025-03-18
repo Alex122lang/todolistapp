@@ -124,3 +124,19 @@ set of rules that allows different software apps to communicate with each other
 
 ### JSON (JavaScript object notation)
 This is an interchangable data format that can be used across any application
+
+
+### AUTHENTICATION AND AUTHORIZATION
+- Authentication:: IDENTITY MANAGEMENT :: WHO IS USING THE APP
+- AUTHORIZATION :: USER PRIVILEDGES :: WHAT USER CAN DO ONCE AUTHENTICATED
+
+### STEPS IN CREATING AN AUTHENTICATION MODULE
+1. within settings.py of the project modify the authentication settings
+a. LOGIN_URL :: ## Redirect unauthenticated users back to the login screen
+b. LOGIN_REDIRECR_URL :: ## After login what page will the user see
+c. LOGOUT_REDIRECT_URK :: ## After logout, redirect user back to login screen
+2. Create views function for the register, login and logout processes
+3. create the rendered/redirected templates
+4. Register the urls to map to the authentication functions in views
+5. Do migrations :: python manage.py migrate
+
