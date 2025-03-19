@@ -140,3 +140,22 @@ c. LOGOUT_REDIRECT_URK :: ## After logout, redirect user back to login screen
 4. Register the urls to map to the authentication functions in views
 5. Do migrations :: python manage.py migrate
 
+### EXTENDING THE DJANGO AUTH USER MODEL
+1. Import the class AbstractUser in our models.py
+2. create the custom user class, name should be CustomUser
+3. Tell django to use custom model for the user (settings.py)
+4. Update our forms to also use the custom model 
+  a. create forms.py in the ap folder, write out our customuser form
+
+5. Update the views function to use the custom model / form
+6. updating the templates to reflect the new inputs :: register.html
+7. Ensure that our django app can handle media
+  a. inside settings.py media_url , media_root
+  b. urls.py include the media reference as part of the urlpatterns
+
+8. reset the database and make new migrations.
+    - delete the migrations folder
+    -python manage.py flush :: reset
+    - python manage.py makemigrations appname
+    - python manage.py migrate
+
