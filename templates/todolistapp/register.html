@@ -12,7 +12,7 @@
      {% csrf_token %}
     {# this part loads appropriate form as in views #}
     {% for field in form %}
-        <label {{ field.label }}></label>
+        <label> {{ field.label }}</label>
         {{ field }}
         <small>{{ field.errors }}</small>
     {% endfor %}

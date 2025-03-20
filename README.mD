@@ -152,10 +152,12 @@ c. LOGOUT_REDIRECT_URK :: ## After logout, redirect user back to login screen
 7. Ensure that our django app can handle media
   a. inside settings.py media_url , media_root
   b. urls.py include the media reference as part of the urlpatterns
-
-8. reset the database and make new migrations.
-    - delete the migrations folder
+8. pip install pillow
+9. reset the database and make new migrations.
+    - delete the migrations 
+    - delete the db.sqlite file
     -python manage.py flush :: reset
     - python manage.py makemigrations appname
     - python manage.py migrate
 
+   
